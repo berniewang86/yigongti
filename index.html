@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>县域医共体一体化平台</title>
+    <link rel="stylesheet" href="./styles.css?v=merge-doc6" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand">
+          <div class="brand-mark">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+              <rect x="10" y="2" width="6" height="22" rx="3" fill="white"/>
+              <rect x="2" y="10" width="22" height="6" rx="3" fill="white"/>
+              <circle cx="13" cy="2"  r="2" fill="white" opacity="0.55"/>
+              <circle cx="13" cy="24" r="2" fill="white" opacity="0.55"/>
+              <circle cx="2"  cy="13" r="2" fill="white" opacity="0.55"/>
+              <circle cx="24" cy="13" r="2" fill="white" opacity="0.55"/>
+            </svg>
+          </div>
+          <div>
+            <strong>县域医共体</strong>
+            <span>一体化运营平台</span>
+          </div>
+        </div>
+
+        <div class="region-card">
+          <span>牵头单位</span>
+          <strong>区人民医院</strong>
+          <small>三级医院 · 1300 张床 · 服务 100 万人口</small>
+        </div>
+
+        <nav id="mainNav" class="nav" aria-label="平台模块"></nav>
+
+        <section class="sidebar-status" aria-label="运行状态">
+          <div>
+            <span>今日平台状态</span>
+            <strong>平稳运行</strong>
+          </div>
+          <p>已接入 18 家乡镇卫生院、246 个村卫生室、7 家民营机构、12 家养老机构。</p>
+        </section>
+
+        <div class="sidebar-preferences" aria-label="视图偏好">
+          <span>视图</span>
+          <div class="theme-switch">
+            <button type="button" data-theme-choice="light" title="白天视图">白天</button>
+            <button type="button" data-theme-choice="dark" title="夜间视图">夜间</button>
+            <button type="button" data-theme-choice="auto" title="跟随系统">自动</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p id="viewLabel" class="eyebrow">医共体管理端</p>
+            <h1 id="pageTitle">县域运行驾驶舱</h1>
+          </div>
+          <div class="topbar-actions">
+            <label class="search" aria-label="搜索">
+              <svg class="topbar-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="searchInput" type="search" placeholder="搜索患者、机构、转诊单、慢病档案" />
+            </label>
+            <div class="role-switch" role="tablist" aria-label="端口切换">
+              <button class="active" type="button" data-role="manager">管理端</button>
+              <button type="button" data-role="doctor">医生端</button>
+              <button type="button" data-role="patient">患者端</button>
+            </div>
+            <span class="topbar-divider" aria-hidden="true"></span>
+            <button id="notifButton" class="icon-button" type="button" aria-label="通知" title="通知">
+              <svg class="topbar-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.957-2.738 7.326"/></svg>
+              <span id="notifBadge" class="notif-badge" style="display:none;">0</span>
+            </button>
+            <button id="settingsButton" class="icon-button" type="button" aria-label="系统设置" title="系统设置">
+              <svg class="topbar-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+            <button id="commandButton" class="primary-button" type="button" hidden></button>
+          </div>
+        </header>
+
+        <section id="content" class="content" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <div id="overlayBackdrop" hidden style="position:fixed;inset:0;z-index:299;background:rgba(0,0,0,0.25);"></div>
+    <aside id="settingsPanel" hidden aria-label="系统设置" style="position:fixed;z-index:300;"></aside>
+    <aside id="notifPanel"    hidden aria-label="通知"     style="position:fixed;z-index:300;"></aside>
+
+    <div id="detailBackdrop" class="detail-backdrop" hidden></div>
+    <aside id="detailDrawer" class="detail-drawer" aria-label="业务详情" hidden>
+      <div class="detail-drawer-header">
+        <div>
+          <p id="detailKind" class="eyebrow">业务详情</p>
+          <h2 id="detailTitle">详情</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-detail aria-label="关闭">×</button>
+      </div>
+      <div id="detailBody" class="detail-drawer-body"></div>
+    </aside>
+
+    <script src="./app.js?v=merge-doc6"></script>
+  </body>
+</html>
